@@ -1,0 +1,31 @@
+server:
+  port: 80
+
+# spring数据源
+spring:
+  datasource:
+    name: test
+    url: jdbc:mysql://127.0.0.1:3306/testdb
+    username: root
+    password: root
+    type: org.springframework.jdbc.datasource.DriverManagerDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+
+# 配置mybatis节点
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.pack.po
+
